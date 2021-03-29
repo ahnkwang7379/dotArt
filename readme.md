@@ -136,7 +136,7 @@ localStorage에 세이브 / 로드가 가능합니다.
 
 ## 도트
 
-<img src="./frontend/screenshots/dotPaint.gif"/>
+<img src="./frontend/screenshots/dotpaint.gif"/>
 <img src="./frontend/screenshots/dotArray.gif" width="350px"/>
 
 초기에는 div의 background-color가 직접 변경되는 방식으로 구현했었지만 도트 수가 많으면 점점 퍼포먼스가 나빠졌습니다. 바뀐 도트만 다시 그리는 것도 비교하는 작업이 너무 오래 걸렸고, 도트 전체의 div를 통으로 다시 그리는 것도 느렸습니다. 그 후 방법을 모색하다 css의 box-shadow를 이용해 도트처럼 표현할 수 있는 방법을 찾아 div는 틀만 남긴 채 실제 그림이 그려지는 것은 cssParser를 통해 계산된 box-shadow로 바꿔줌으로서 비교작업이나 div의 rapaint 작업 없이 안정적인 유저 경험을 만들 수 있었습니다.
