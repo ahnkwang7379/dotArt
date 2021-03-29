@@ -151,8 +151,8 @@ const PreViewTools = ({
       viewBox.style.display = 'block';
 
       let left,
-        top = 0;
-      let height,
+        top,
+        height,
         width = 0;
 
       if (overTop) {

@@ -131,3 +131,14 @@ localStorage에 세이브 / 로드가 가능합니다.
 [mongoDB](https://www.mongodb.com/) : mongoDB Altas를 이용해 계정과 도트게시판 데이터를 저장 중입니다.
 
 [google cloud](https://cloud.google.com/gcp) : 간편한 초기 설정과 배포로 빠르게 적용 가능한 구글 클라우드를 사용했습니다.
+
+# 구현 방식
+
+## 도트
+
+<img src="./frontend/screenshots/dotPaint.gif"/>
+<img src="./frontend/screenshots/dotArray.gif" width="350px"/>
+
+초기에는 div의 background-color가 직접 변경되는 방식으로 구현했었지만 도트 수가 많으면 점점 퍼포먼스가 나빠졌습니다. 바뀐 도트만 다시 그리는 것도 비교하는 작업이 너무 오래 걸렸고, 도트 전체의 div를 통으로 다시 그리는 것도 느렸습니다. 그 후 방법을 모색하다 css의 box-shadow를 이용해 도트처럼 표현할 수 있는 방법을 찾아 div는 틀만 남긴 채 실제 그림이 그려지는 것은 cssParser를 통해 계산된 box-shadow로 바꿔줌으로서 비교작업이나 div의 rapaint 작업 없이 안정적인 유저 경험을 만들 수 있었습니다.
+
+거기에 그치지 않고 실제 그림이 있는 main layer와 그림이 그려지는 fake layer를 분리해 마우스를 누른 후 z-index가 더 위에 놓여진 fake layer에 그려지다가 마우스를 떼면 main layer에 합치는 방식으로 바꿔 redo/undo기능 구현이 한 결 쉬웠습니다. 또한 layer를 나눠 부분 부분 그림을 그려 합칠 수 있는 layers 기능도 추가할 수 있게 되었습니다.
