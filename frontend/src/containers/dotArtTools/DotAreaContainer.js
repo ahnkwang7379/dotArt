@@ -28,14 +28,12 @@ const DotAreaContainer = () => {
   );
 
   return (
-    <>
-      <DotAreaControl
-        rowCount={rowCount}
-        columnCount={columnCount}
-        onChangeArea={onChangeArea}
-        changeTypingHandle={changeTypingHandle}
-      />
-    </>
+    <DotAreaControl
+      rowCount={rowCount}
+      columnCount={columnCount}
+      onChangeArea={onChangeArea}
+      changeTypingHandle={changeTypingHandle}
+    />
   );
 };
 

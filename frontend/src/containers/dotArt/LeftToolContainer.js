@@ -4,6 +4,7 @@ import DotAreaContainer from '../dotArtTools/DotAreaContainer';
 import PaintColorContainer from '../dotArtTools/PaintColorContainer';
 import PaintToolContainer from '../dotArtTools/PaintToolContainer';
 import PalettesContainer from '../dotArtTools/PalettesContainer';
+import RedoUndoContainer from '../dotArtTools/RedoUndoContainer';
 import styled from 'styled-components';
 
 const LeftToolBox = styled.div`
@@ -25,6 +26,7 @@ const LeftToolContainer = () => {
       <SaveLoadContainer />
       <DotAreaContainer />
       <PaintToolContainer />
+      <RedoUndoContainer />
       <PalettesContainer />
       <PaintColorContainer />
     </LeftToolBox>

@@ -18,8 +18,8 @@ const PaintToolContainer = () => {
   return (
     <PaintTool
       paintToolsShortcuts={paintToolsShortcuts}
-      onChangePaintTool={onChangePaintTool}
       selectedPaintTool={selectedPaintTool}
+      onChangePaintTool={onChangePaintTool}
     />
   );
 };

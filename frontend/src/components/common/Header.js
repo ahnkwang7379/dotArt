@@ -40,7 +40,7 @@ const UserInfo = styled.div`
   margin-right: 1rem;
 `;
 
-const Header = ({ user, onLogout }) => {
+const HeaderBlocks = React.memo(({ user, onLogout }) => {
   return (
     <>
       <HeaderBlock>
@@ -68,6 +68,10 @@ const Header = ({ user, onLogout }) => {
       <Spacer />
     </>
   );
+});
+
+const Header = ({ user, onLogout }) => {
+  return <HeaderBlocks user={user} onLogout={onLogout} />;
 };
 
 export default Header;
