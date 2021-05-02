@@ -10,39 +10,50 @@ const RedoUndoBlock = styled.div`
   & > * {
     margin-right: 1px;
   }
-  padding: 4px;
 `;
+
+const RedoUndoComponent = React.memo(
+  ({ redoundoShortcuts, redoHandle, undoHandle }) => {
+    return (
+      <RedoUndoBlock>
+        <ToolTip
+          placement="top"
+          tooltip={
+            <div>
+              {redoundoShortcuts['UNDO'].helpText}
+              <span className="tooltip-shortcut">{`(${redoundoShortcuts['UNDO'].key})`}</span>
+            </div>
+          }
+        >
+          <CustomButton width="80" onClick={() => undoHandle()}>
+            <FaUndo />
+          </CustomButton>
+        </ToolTip>
+        <ToolTip
+          placement="top"
+          tooltip={
+            <div>
+              {redoundoShortcuts['REDO'].helpText}
+              <span className="tooltip-shortcut">{`(${redoundoShortcuts['REDO'].key})`}</span>
+            </div>
+          }
+        >
+          <CustomButton width="80" onClick={() => redoHandle()}>
+            <FaRedo />
+          </CustomButton>
+        </ToolTip>
+      </RedoUndoBlock>
+    );
+  },
+);
 
 const RedoUndo = ({ redoundoShortcuts, redoHandle, undoHandle }) => {
   return (
-    <RedoUndoBlock>
-      <ToolTip
-        placement="top"
-        tooltip={
-          <div>
-            {redoundoShortcuts['UNDO'].helpText}
-            <span className="tooltip-shortcut">{`(${redoundoShortcuts['UNDO'].key})`}</span>
-          </div>
-        }
-      >
-        <CustomButton width="80" onClick={() => undoHandle()}>
-          <FaUndo />
-        </CustomButton>
-      </ToolTip>
-      <ToolTip
-        placement="top"
-        tooltip={
-          <div>
-            {redoundoShortcuts['REDO'].helpText}
-            <span className="tooltip-shortcut">{`(${redoundoShortcuts['REDO'].key})`}</span>
-          </div>
-        }
-      >
-        <CustomButton width="80" onClick={() => redoHandle()}>
-          <FaRedo />
-        </CustomButton>
-      </ToolTip>
-    </RedoUndoBlock>
+    <RedoUndoComponent
+      redoundoShortcuts={redoundoShortcuts}
+      redoHandle={redoHandle}
+      undoHandle={undoHandle}
+    />
   );
 };
 

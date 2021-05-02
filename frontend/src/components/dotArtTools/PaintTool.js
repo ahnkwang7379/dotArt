@@ -19,14 +19,17 @@ import { FaEraser, FaHandPaper, FaBorderAll } from 'react-icons/fa';
 import ToolTip from '../common/ToolTip';
 
 const PaintToolWrapper = styled.div`
-  width: 100%;
   padding: 4px;
+  border: 2px solid #59564f;
+  border-radius: 3px;
+  & > * {
+    margin-bottom: 8px;
+  }
 `;
 
 const PaintButtonBlock = styled.div`
   height: 40px;
   display: flex;
-  margin-bottom: 8px;
 
   & > * {
     margin-right: 1px;
@@ -37,21 +40,27 @@ const PaintTool = ({
   paintToolsShortcuts,
   selectedPaintTool,
   onChangePaintTool,
+  RedoUndoComponent,
 }) => {
   return (
     <PaintTools
       paintToolsShortcuts={paintToolsShortcuts}
       selectedPaintTool={selectedPaintTool}
       onChangePaintTool={onChangePaintTool}
+      RedoUndoComponent={RedoUndoComponent}
     />
   );
 };
 
 const PaintTools = React.memo(
-  ({ paintToolsShortcuts, selectedPaintTool, onChangePaintTool }) => {
+  ({
+    paintToolsShortcuts,
+    selectedPaintTool,
+    onChangePaintTool,
+    RedoUndoComponent,
+  }) => {
     return (
       <PaintToolWrapper>
-        <span>Paint Tools</span>
         <PaintButtonBlock>
           <ToolTip
             placement="top"
@@ -196,6 +205,7 @@ const PaintTools = React.memo(
             </CustomButton>
           </ToolTip>
         </PaintButtonBlock>
+        <RedoUndoComponent />
       </PaintToolWrapper>
     );
   },

@@ -39,6 +39,7 @@ import ToolTip from '../common/ToolTip';
 const KeyBindWrapper = styled.div`
   position: fixed;
   bottom: 8px;
+  left: 8px;
 `;
 
 const Button = styled.div`
