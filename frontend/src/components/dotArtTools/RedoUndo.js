@@ -7,6 +7,7 @@ import ToolTip from '../common/ToolTip';
 const RedoUndoBlock = styled.div`
   display: flex;
   height: 40px;
+  justify-content: center;
   & > * {
     margin-right: 1px;
   }
@@ -25,7 +26,7 @@ const RedoUndoComponent = React.memo(
             </div>
           }
         >
-          <CustomButton width="80" onClick={() => undoHandle()}>
+          <CustomButton width="96" onClick={() => undoHandle()}>
             <FaUndo />
           </CustomButton>
         </ToolTip>
@@ -38,7 +39,7 @@ const RedoUndoComponent = React.memo(
             </div>
           }
         >
-          <CustomButton width="80" onClick={() => redoHandle()}>
+          <CustomButton width="96" onClick={() => redoHandle()}>
             <FaRedo />
           </CustomButton>
         </ToolTip>

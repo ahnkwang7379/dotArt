@@ -20,17 +20,17 @@ import ToolTip from '../common/ToolTip';
 
 const PaintToolWrapper = styled.div`
   padding: 4px;
-  border: 2px solid #59564f;
+  /* border: 2px solid #59564f; */
   border-radius: 3px;
   & > * {
     margin-bottom: 8px;
+    justify-content: center;
   }
 `;
 
 const PaintButtonBlock = styled.div`
-  height: 40px;
+  height: 48px;
   display: flex;
-
   & > * {
     margin-right: 1px;
   }
@@ -40,25 +40,18 @@ const PaintTool = ({
   paintToolsShortcuts,
   selectedPaintTool,
   onChangePaintTool,
-  RedoUndoComponent,
 }) => {
   return (
     <PaintTools
       paintToolsShortcuts={paintToolsShortcuts}
       selectedPaintTool={selectedPaintTool}
       onChangePaintTool={onChangePaintTool}
-      RedoUndoComponent={RedoUndoComponent}
     />
   );
 };
 
 const PaintTools = React.memo(
-  ({
-    paintToolsShortcuts,
-    selectedPaintTool,
-    onChangePaintTool,
-    RedoUndoComponent,
-  }) => {
+  ({ paintToolsShortcuts, selectedPaintTool, onChangePaintTool }) => {
     return (
       <PaintToolWrapper>
         <PaintButtonBlock>
@@ -72,7 +65,7 @@ const PaintTools = React.memo(
             }
           >
             <CustomButton
-              width="40"
+              width="48"
               selected={selectedPaintTool === DOT}
               onClick={() => onChangePaintTool(DOT)}
             >
@@ -90,7 +83,7 @@ const PaintTools = React.memo(
             }
           >
             <CustomButton
-              width="40"
+              width="48"
               selected={selectedPaintTool === BUCKET}
               onClick={() => onChangePaintTool(BUCKET)}
             >
@@ -107,7 +100,7 @@ const PaintTools = React.memo(
             }
           >
             <CustomButton
-              width="40"
+              width="48"
               selected={selectedPaintTool === SAMECOLOR}
               onClick={() => onChangePaintTool(SAMECOLOR)}
             >
@@ -124,7 +117,7 @@ const PaintTools = React.memo(
             }
           >
             <CustomButton
-              width="40"
+              width="48"
               selected={selectedPaintTool === ERASER}
               onClick={() => onChangePaintTool(ERASER)}
             >
@@ -143,7 +136,7 @@ const PaintTools = React.memo(
             }
           >
             <CustomButton
-              width="40"
+              width="48"
               selected={selectedPaintTool === PICKER}
               onClick={() => onChangePaintTool(PICKER)}
             >
@@ -163,7 +156,7 @@ const PaintTools = React.memo(
             }
           >
             <CustomButton
-              width="40"
+              width="48"
               selected={selectedPaintTool === MOVE}
               onClick={() => onChangePaintTool(MOVE)}
             >
@@ -180,7 +173,7 @@ const PaintTools = React.memo(
             }
           >
             <CustomButton
-              width="40"
+              width="48"
               selected={selectedPaintTool === RECTANGLE}
               onClick={() => onChangePaintTool(RECTANGLE)}
             >
@@ -197,7 +190,7 @@ const PaintTools = React.memo(
             }
           >
             <CustomButton
-              width="40"
+              width="48"
               selected={selectedPaintTool === DITHERING}
               onClick={() => onChangePaintTool(DITHERING)}
             >
@@ -205,7 +198,6 @@ const PaintTools = React.memo(
             </CustomButton>
           </ToolTip>
         </PaintButtonBlock>
-        <RedoUndoComponent />
       </PaintToolWrapper>
     );
   },

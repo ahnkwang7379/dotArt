@@ -26,7 +26,7 @@ const LeftToolContainer = () => {
       <SaveLoadContainer />
       <DotAreaContainer />
       <PaintToolContainer />
-      {/* <RedoUndoContainer /> */}
+      <RedoUndoContainer />
       <PalettesContainer />
       <PaintColorContainer />
     </LeftToolBox>
